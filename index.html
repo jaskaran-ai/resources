@@ -141,15 +141,12 @@
     }
     .nav .wrap { display: flex; align-items: center; gap: 32px; height: 80px; }
     .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: 0 0 auto; }
-    .brand .mark {
-      width: 26px; height: 26px; border-radius: var(--radius-full);
-      background: conic-gradient(from 200deg, var(--coral), var(--sky-blue), var(--mint), var(--gold), var(--coral));
+    .brand img { height: 30px; width: auto; display: block; }
+    .brand span {
+      font-size: 18px; letter-spacing: -0.022em; text-transform: uppercase;
+      line-height: 1.2; color: var(--smoke); font-weight: 400;
+      padding-left: 12px; border-left: 1px solid var(--ash);
     }
-    .brand b, .brand span {
-      font-size: 18px; letter-spacing: -0.022em; text-transform: uppercase; line-height: 1.2;
-    }
-    .brand b { font-weight: 500; }
-    .brand span { color: var(--smoke); font-weight: 400; }
 
     .navlinks { display: flex; align-items: center; gap: 32px; }
     .navlinks a {
@@ -645,8 +642,9 @@
   <nav class="nav">
     <div class="wrap">
       <a class="brand" href="/">
-        <span class="mark" aria-hidden="true"></span>
-        <b>iVALT</b><span>Resources</span>
+        <img src="https://resources.ivalt.com/images/logo.png" alt="iVALT"
+             onerror="if(this.dataset.fb!=='1'){this.dataset.fb='1';this.src='/images/logo.png';}" />
+        <span>Resources</span>
       </a>
       <div class="navlinks">
         <a href="#gallery">Gallery</a>
