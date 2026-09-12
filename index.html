@@ -789,7 +789,6 @@
     document.getElementById("lbNext").addEventListener("click", () => step(1));
     document.getElementById("lbClose").addEventListener("click", closeLb);
     lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
-    lbCopy.addEventListener("click", () => copy(new URL(lbCopy.dataset.copy, location.href).href));
     document.addEventListener("keydown", e => {
       if (!lb.hasAttribute("open")) return;
       if (e.key === "ArrowLeft") step(-1);
