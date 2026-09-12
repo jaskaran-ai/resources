@@ -4,263 +4,577 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iVALT Resources</title>
-  <meta name="description" content="Image and asset resources for iVALT." />
+  <meta name="description" content="An editorial asset library of iVALT product imagery, screenshots, and brand marks." />
   <link rel="icon" href="/images/logohome.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f6f8fc;
-      --surface: #ffffff;
-      --surface-2: #eef2f9;
-      --border: #dfe5ef;
-      --text: #0f1729;
-      --muted: #5b6b85;
-      --brand: #1a5cff;
-      --brand-ink: #ffffff;
-      --shadow: 0 1px 2px rgba(15, 23, 41, .06), 0 8px 24px rgba(15, 23, 41, .06);
-      --radius: 16px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0a0f1c;
-        --surface: #121a2b;
-        --surface-2: #1a2438;
-        --border: #26324a;
-        --text: #eaf0fb;
-        --muted: #94a3bb;
-        --brand: #5b8bff;
-        --brand-ink: #06122b;
-        --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 30px rgba(0, 0, 0, .35);
-      }
+      /* Colors */
+      --parchment: #f6f3f1;
+      --lake-blue: #2b59d1;
+      --periwinkle-mist: #cfdaf5;
+      --sky-blue: #a0b5eb;
+      --mint: #a7fccd;
+      --coral: #ff9473;
+      --gold: #ecda98;
+      --crimson: #f37a0a;
+      --off-black: #242424;
+      --ink: #000000;
+      --graphite: #4e4d4d;
+      --smoke: #797776;
+      --ash: #cecac8;
+
+      /* Typography */
+      --mono: 'ABC Diatype Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --serif: 'Untitled Serif', 'Newsreader', Georgia, 'Times New Roman', serif;
+
+      /* Spacing */
+      --sp-8: 8px;
+      --sp-16: 16px;
+      --sp-24: 24px;
+      --sp-32: 32px;
+      --sp-40: 40px;
+      --sp-64: 64px;
+      --sp-80: 80px;
+
+      /* Radius */
+      --radius-2xl: 16px;
+      --radius-card: 40px;
+      --radius-pill: 100px;
+      --radius-full: 9999px;
+
+      --page-max: 1432px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--parchment);
+      color: var(--off-black);
+      font-family: var(--mono);
+      font-size: 16px;
+      line-height: 1.35;
+      letter-spacing: -0.4px;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
+      text-rendering: optimizeLegibility;
     }
 
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-    header.site {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: saturate(1.4) blur(10px);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      border-bottom: 1px solid var(--border);
+    h1, h2, h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0;
     }
-    .bar { display: flex; align-items: center; gap: 14px; padding: 14px 0; }
-    .bar img { height: 34px; width: auto; display: block; }
-    .bar .title { display: flex; flex-direction: column; line-height: 1.15; }
-    .bar .title strong { font-size: 17px; letter-spacing: -.01em; }
-    .bar .title span { font-size: 12.5px; color: var(--muted); }
-    .bar .spacer { flex: 1; }
 
-    .search {
-      position: relative;
-      flex: 0 1 300px;
+    a { color: inherit; }
+    button { font: inherit; color: inherit; }
+
+    .wrap {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 40px;
     }
+
+    /* ---------- Announcement bar ---------- */
+    .announce { background: var(--ink); color: var(--parchment); }
+    .announce .wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 44px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    .announce .led {
+      width: 8px; height: 8px; flex: 0 0 auto;
+      border-radius: var(--radius-full);
+      background: var(--mint);
+      box-shadow: 0 0 0 3px rgba(167, 252, 205, .18);
+    }
+    .announce p {
+      margin: 0;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .announce p b { font-weight: 500; }
+    .announce .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid rgba(246, 243, 241, .5);
+      background: transparent;
+      color: var(--parchment);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 12px;
+      letter-spacing: -0.033em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .announce .pill:hover { background: var(--parchment); color: var(--ink); border-color: var(--parchment); }
+    .announce .x {
+      background: none; border: 0; cursor: pointer;
+      color: var(--parchment); font-size: 18px; line-height: 1;
+      padding: 4px 6px; opacity: .75;
+    }
+    .announce .x:hover { opacity: 1; }
+    .announce.hidden { display: none; }
+
+    /* ---------- Navigation ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(246, 243, 241, .86);
+      backdrop-filter: saturate(1.3) blur(12px);
+      -webkit-backdrop-filter: saturate(1.3) blur(12px);
+    }
+    .nav .wrap { display: flex; align-items: center; gap: 32px; height: 80px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: 0 0 auto; }
+    .brand .mark {
+      width: 26px; height: 26px; border-radius: var(--radius-full);
+      background: conic-gradient(from 200deg, var(--coral), var(--sky-blue), var(--mint), var(--gold), var(--coral));
+    }
+    .brand b, .brand span {
+      font-size: 18px; letter-spacing: -0.022em; text-transform: uppercase; line-height: 1.2;
+    }
+    .brand b { font-weight: 500; }
+    .brand span { color: var(--smoke); font-weight: 400; }
+
+    .navlinks { display: flex; align-items: center; gap: 32px; }
+    .navlinks a {
+      text-decoration: none; font-size: 18px; letter-spacing: -0.022em;
+      text-transform: uppercase; padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: border-color .15s, color .15s;
+    }
+    .navlinks a:hover { border-color: var(--ash); }
+    .nav .actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-pill);
+      padding: 16px 32px;
+      font-family: var(--mono);
+      font-size: 14px; font-weight: 500; letter-spacing: -0.02em;
+      line-height: 1; text-transform: uppercase; text-decoration: none;
+      cursor: pointer; white-space: nowrap;
+      transition: background .15s, border-color .15s, color .15s, filter .15s, transform .1s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--lake-blue); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-black { background: var(--off-black); color: var(--parchment); }
+    .btn-black:hover { background: var(--ink); }
+    .btn-ghost { background: transparent; border-color: var(--off-black); color: var(--off-black); }
+    .btn-ghost:hover { background: var(--off-black); color: var(--parchment); }
+    .btn-sm { padding: 12px 22px; font-size: 12px; letter-spacing: -0.033em; }
+
+    .tlink {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 500; letter-spacing: -0.02em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--off-black); background: none; border: 0; padding: 0; cursor: pointer;
+      transition: color .15s;
+    }
+    .tlink:hover { color: var(--lake-blue); }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; padding: 80px 0 64px; overflow: hidden; }
+    .wash { position: absolute; z-index: 0; pointer-events: none; filter: blur(72px); opacity: .8; }
+    .wash.a { width: 520px; height: 400px; top: -120px; left: -80px; background: radial-gradient(circle at 35% 35%, var(--coral), transparent 70%); }
+    .wash.b { width: 560px; height: 440px; top: -40px; right: -100px; background: radial-gradient(circle at 60% 40%, var(--sky-blue), transparent 70%); }
+    .wash.c { width: 460px; height: 360px; bottom: -160px; left: 34%; background: radial-gradient(circle at 50% 50%, var(--mint), transparent 72%); }
+    .hero .wrap {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    .node-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--parchment);
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-full);
+      padding: 12px 20px;
+      font-size: 14px; letter-spacing: -0.02em; text-transform: uppercase;
+      color: var(--off-black); text-decoration: none;
+    }
+    .node-tag .led { width: 8px; height: 8px; border-radius: var(--radius-full); background: var(--lake-blue); }
+    .hero h1 {
+      margin: 32px 0 0;
+      font-size: clamp(52px, 7vw, 80px);
+      letter-spacing: -0.02em;
+      color: var(--off-black);
+    }
+    .hero .sub {
+      margin: 24px 0 0;
+      max-width: 62ch;
+      font-size: 20px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      color: var(--graphite);
+    }
+    .hero .cta { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 40px; }
+
+    .stats {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 64px; margin-top: 64px;
+      padding-top: 40px; border-top: 1px solid var(--ash);
+      width: 100%;
+    }
+    .stat { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+    .stat .v { font-size: 28px; font-weight: 500; letter-spacing: -0.014em; }
+    .stat .k { font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase; color: var(--smoke); }
+
+    /* ---------- Toolbar ---------- */
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+      flex-wrap: wrap; padding-top: 64px;
+    }
+    .section-head h2 { font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.02em; }
+    .section-head .hint { font-size: 14px; color: var(--smoke); letter-spacing: -0.02em; text-transform: uppercase; }
+
+    .toolbar {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+      margin: 32px 0 40px;
+    }
+    .search { position: relative; flex: 1 1 300px; min-width: 240px; }
     .search input {
       width: 100%;
-      padding: 10px 14px 10px 38px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font-size: 14px;
+      font-family: var(--mono); font-size: 16px; letter-spacing: -0.4px;
+      color: var(--off-black);
+      background: transparent;
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-pill);
+      padding: 16px 24px 16px 52px;
       outline: none;
-      transition: border-color .15s, box-shadow .15s;
+      transition: border-color .15s;
     }
-    .search input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 22%, transparent); }
-    .search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); opacity: .5; }
+    .search input::placeholder { color: var(--smoke); text-transform: uppercase; font-size: 14px; letter-spacing: -0.02em; }
+    .search input:focus { border-color: var(--off-black); }
+    .search svg { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--smoke); }
+    .toolbar .count {
+      font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase;
+      color: var(--smoke); white-space: nowrap;
+    }
 
-    .hero { padding: 40px 0 8px; }
-    .hero h1 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 8px; letter-spacing: -.02em; }
-    .hero p { margin: 0; color: var(--muted); font-size: 15.5px; max-width: 60ch; }
-    .count { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 13px; color: var(--muted); }
-    .count b { color: var(--text); }
-
-    main { padding: 18px 0 64px; }
-
+    /* ---------- Gallery ---------- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
     }
 
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      transition: transform .18s ease, border-color .18s ease;
+      display: flex; flex-direction: column; gap: 24px;
+      background: var(--parchment);
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-card);
+      padding: 40px;
     }
-    .card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--brand) 45%, var(--border)); }
 
-    .thumb {
+    .plate {
       position: relative;
       aspect-ratio: 4 / 3;
-      background:
-        repeating-conic-gradient(var(--surface-2) 0% 25%, transparent 0% 50%);
-      background-size: 18px 18px;
-      cursor: zoom-in;
-      border: 0;
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-2xl);
+      background: linear-gradient(0deg, rgba(206, 202, 200, .16), rgba(206, 202, 200, .16));
+      overflow: hidden;
+      display: grid; place-items: center;
       padding: 0;
-      width: 100%;
-      display: block;
+      cursor: zoom-in;
+      transition: border-color .18s;
     }
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      padding: 10px;
+    .plate:hover { border-color: var(--off-black); }
+    .plate img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain; padding: 16px; display: block;
+      transition: transform .3s ease;
     }
-    .badge {
-      position: absolute; top: 10px; right: 10px;
-      font-size: 10.5px; font-weight: 700; letter-spacing: .04em;
-      text-transform: uppercase;
-      background: color-mix(in srgb, var(--surface) 80%, transparent);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 3px 7px; border-radius: 6px;
-      backdrop-filter: blur(6px);
+    .plate:hover img { transform: scale(1.03); }
+    .plate .tag {
+      position: absolute; top: 12px; right: 12px;
+      background: var(--parchment);
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-full);
+      padding: 6px 12px;
+      font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase;
+      color: var(--graphite);
     }
-    .meta { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
-    .name {
-      font-size: 13px; font-weight: 600; letter-spacing: -.01em;
-      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    }
-    .size { font-size: 11.5px; color: var(--muted); }
-    .actions { display: flex; gap: 8px; }
-    .btn {
-      flex: 1;
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-      padding: 8px 10px; border-radius: 9px;
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--text);
-      font-size: 12.5px; font-weight: 600;
-      cursor: pointer; text-decoration: none;
-      transition: background .15s, border-color .15s, color .15s;
-    }
-    .btn:hover { border-color: color-mix(in srgb, var(--brand) 50%, var(--border)); color: var(--brand); }
-    .btn.primary { background: var(--brand); color: var(--brand-ink); border-color: transparent; }
-    .btn.primary:hover { filter: brightness(1.06); color: var(--brand-ink); }
-    .btn.copied { background: #16a34a; color: #fff; border-color: transparent; }
 
-    .empty { display: none; text-align: center; padding: 70px 20px; color: var(--muted); }
+    .card h3 { font-size: 24px; letter-spacing: -0.48px; }
+    .card .file {
+      font-size: 14px; letter-spacing: -0.02em; color: var(--graphite);
+      word-break: break-all; line-height: 1.35;
+    }
+    .card .meta-row {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase; color: var(--smoke);
+    }
+    .card .meta-row .sep { width: 1px; height: 12px; background: var(--ash); }
+    .card .actions { margin-top: auto; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
-    /* Lightbox */
+    /* Periwinkle CTA card */
+    .card.cta {
+      background: var(--periwinkle-mist);
+      border-color: transparent;
+      justify-content: space-between;
+    }
+    .card.cta .art {
+      position: relative; height: 150px; overflow: hidden;
+      border-radius: var(--radius-2xl);
+      background: linear-gradient(115deg, var(--coral), var(--sky-blue) 55%, var(--mint));
+    }
+    .card.cta .art::before {
+      content: ""; position: absolute; width: 130px; height: 130px;
+      border-radius: 50%; background: rgba(255, 255, 255, .38);
+      top: -40px; right: -24px;
+    }
+    .card.cta .art::after {
+      content: ""; position: absolute; width: 96px; height: 96px;
+      border-radius: 24px; background: rgba(43, 89, 209, .22);
+      bottom: -28px; left: 22px; transform: rotate(18deg);
+    }
+    .card.cta .art .glyph {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-family: var(--serif); font-size: 44px; color: var(--ink); opacity: .82;
+    }
+
+    .empty {
+      display: none; text-align: center; padding: 80px 20px;
+      font-size: 16px; color: var(--smoke); text-transform: uppercase; letter-spacing: -0.02em;
+    }
+
+    /* ---------- FAQ-ish / appendix strip ---------- */
+    .note-strip {
+      margin-top: 80px;
+      border-top: 1px solid var(--ash);
+      border-bottom: 1px solid var(--ash);
+      display: flex; flex-wrap: wrap;
+    }
+    .note-strip .note { flex: 1 1 260px; padding: 40px 40px 40px 0; }
+    .note-strip .note + .note { border-left: 1px solid var(--ash); padding-left: 40px; }
+    .note-strip .note .k {
+      font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 12px;
+    }
+    .note-strip .note p { margin: 0; font-size: 16px; line-height: 1.35; color: var(--graphite); }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 40px 0 64px; }
+    footer .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      border-top: 1px solid var(--ash); padding-top: 40px;
+    }
+    footer p { margin: 0; font-size: 14px; letter-spacing: -0.02em; color: var(--smoke); text-transform: uppercase; }
+    footer a { text-decoration: none; border-bottom: 1px solid var(--ash); }
+    footer a:hover { border-color: var(--off-black); }
+
+    /* ---------- Lightbox ---------- */
     dialog.lb {
       border: 0; padding: 0; background: transparent;
-      width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh;
+      width: 100vw; height: 100vh; max-width: 100vw; max-height: 100vh; overflow: hidden;
+    }
+    dialog.lb::backdrop { background: rgba(36, 36, 36, .74); backdrop-filter: blur(6px); }
+    .lb-inner { width: 100%; height: 100%; padding: 32px; display: grid; grid-template-rows: 1fr auto; gap: 16px; }
+    .lb-stage {
+      position: relative; min-height: 0;
+      display: grid; place-items: center;
+      background: var(--parchment);
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-card);
       overflow: hidden;
     }
-    dialog.lb::backdrop { background: rgba(3, 7, 18, .82); backdrop-filter: blur(4px); }
-    .lb-inner { position: relative; width: 100%; height: 100%; display: grid; grid-template-rows: 1fr auto; }
-    .lb-stage { position: relative; display: flex; align-items: center; justify-content: center; padding: 28px; min-height: 0; }
-    .lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
-    .lb-bar {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-      padding: 12px 18px; background: rgba(10, 15, 28, .9);
-      border-top: 1px solid rgba(255,255,255,.1); color: #eaf0fb;
-    }
-    .lb-bar .lb-name { font-size: 13.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 120px; }
-    .lb-bar .btn { flex: 0 0 auto; background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); color: #eaf0fb; }
-    .lb-bar .btn:hover { color: #fff; border-color: rgba(255,255,255,.4); }
+    .lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; padding: 40px; }
     .lb-nav {
       position: absolute; top: 50%; transform: translateY(-50%);
-      width: 46px; height: 46px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.2); background: rgba(10,15,28,.7); color: #fff;
-      font-size: 22px; line-height: 1; cursor: pointer; display: grid; place-items: center;
-      transition: background .15s, transform .15s;
+      width: 52px; height: 52px; border-radius: var(--radius-full);
+      border: 1px solid var(--ash); background: var(--parchment);
+      color: var(--off-black); font-size: 22px; line-height: 1;
+      display: grid; place-items: center; cursor: pointer;
+      transition: background .15s, color .15s;
     }
-    .lb-nav:hover { background: rgba(30,41,59,.95); }
-    .lb-nav.prev { left: 18px; }
-    .lb-nav.next { right: 18px; }
+    .lb-nav:hover { background: var(--off-black); color: var(--parchment); border-color: var(--off-black); }
+    .lb-nav.prev { left: 20px; }
+    .lb-nav.next { right: 20px; }
     .lb-close {
-      position: absolute; top: 16px; right: 18px; z-index: 2;
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,.2); background: rgba(10,15,28,.7); color: #fff;
-      font-size: 20px; cursor: pointer; display: grid; place-items: center;
+      position: absolute; top: 16px; right: 20px; z-index: 2;
+      width: 44px; height: 44px; border-radius: var(--radius-full);
+      border: 1px solid var(--ash); background: var(--parchment); color: var(--off-black);
+      font-size: 18px; cursor: pointer; display: grid; place-items: center;
     }
-    .lb-close:hover { background: rgba(30,41,59,.95); }
+    .lb-close:hover { background: var(--off-black); color: var(--parchment); border-color: var(--off-black); }
+    .lb-bar {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      background: var(--parchment);
+      border: 1px solid var(--ash);
+      border-radius: var(--radius-pill);
+      padding: 12px 12px 12px 32px;
+    }
+    .lb-bar .title { font-family: var(--serif); font-size: 24px; letter-spacing: -0.48px; }
+    .lb-bar .sub { font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase; color: var(--smoke); }
+    .lb-bar .grow { flex: 1 1 120px; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .lb-bar .grow .sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-    footer.site { border-top: 1px solid var(--border); padding: 26px 0 40px; color: var(--muted); font-size: 13px; }
-    footer.site a { color: var(--brand); text-decoration: none; }
-    footer.site a:hover { text-decoration: underline; }
-
+    /* ---------- Toast ---------- */
     .toast {
-      position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px);
-      background: #0f1729; color: #fff; padding: 10px 16px; border-radius: 10px;
-      font-size: 13px; font-weight: 600; opacity: 0; pointer-events: none;
-      transition: opacity .2s, transform .2s; z-index: 50;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      position: fixed; left: 50%; bottom: 28px; z-index: 60;
+      transform: translate(-50%, 16px);
+      background: var(--off-black); color: var(--parchment);
+      border-radius: var(--radius-pill);
+      padding: 12px 24px;
+      font-size: 12px; letter-spacing: -0.033em; text-transform: uppercase;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s, transform .2s;
     }
     .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-    @media (max-width: 620px) {
-      .bar { flex-wrap: wrap; }
-      .search { flex-basis: 100%; order: 3; }
-      .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-      .lb-nav { width: 40px; height: 40px; }
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1080px) {
+      .navlinks { display: none; }
+    }
+    @media (max-width: 720px) {
+      .wrap { padding: 0 20px; }
+      .hero { padding: 48px 0 40px; }
+      .stats { gap: 32px; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+      .card { padding: 24px; border-radius: 32px; gap: 20px; }
+      .note-strip .note { padding: 24px 24px 24px 0; }
+      .note-strip .note + .note { padding-left: 24px; }
+      .lb-inner { padding: 12px; }
+      .lb-stage { border-radius: 24px; }
+      .lb-stage img { padding: 16px; }
+      .lb-bar { padding: 12px 12px 12px 20px; gap: 12px; }
+      .lb-nav { width: 42px; height: 42px; }
+      .brand span { display: none; }
     }
   </style>
 </head>
 <body>
-  <header class="site">
-    <div class="wrap bar">
-      <img src="/images/logohome.png" alt="iVALT" onerror="this.style.display='none'" />
-      <div class="title">
-        <strong>iVALT Resources</strong>
-        <span>Shared images &amp; assets</span>
+  <!-- Announcement bar -->
+  <div class="announce" id="announce">
+    <div class="wrap">
+      <span class="led" aria-hidden="true"></span>
+      <p><b>Asset library</b> · <span id="announceCount">18</span> files · immutable CDN caching</p>
+      <button class="pill" type="button" id="copyBase">Copy base URL</button>
+      <button class="x" type="button" id="closeAnnounce" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="mark" aria-hidden="true"></span>
+        <b>iVALT</b><span>Resources</span>
+      </a>
+      <div class="navlinks">
+        <a href="#gallery">Gallery</a>
+        <a href="#notes">Format</a>
+        <a href="https://github.com/jaskaran-ai/resources" target="_blank" rel="noopener noreferrer">Source</a>
       </div>
-      <div class="spacer"></div>
-      <label class="search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
-        <input id="q" type="search" placeholder="Search assets…" autocomplete="off" spellcheck="false" />
-      </label>
+      <div class="actions">
+        <a class="btn btn-ghost btn-sm" href="https://ivalt.com" target="_blank" rel="noopener noreferrer">ivalt.com</a>
+        <a class="btn btn-black btn-sm" href="https://github.com/jaskaran-ai/resources" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <span class="wash a" aria-hidden="true"></span>
+    <span class="wash b" aria-hidden="true"></span>
+    <span class="wash c" aria-hidden="true"></span>
+    <div class="wrap">
+      <span class="node-tag"><span class="led" aria-hidden="true"></span> iVALT · Asset Library</span>
+      <h1>Resources</h1>
+      <p class="sub">A curated library of product imagery, interface screenshots, and brand marks — typeset for the record, served straight from the edge.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#gallery">Browse gallery ▸</a>
+        <button class="btn btn-ghost" type="button" id="copyBaseHero">Copy base URL</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="v" id="statCount">18</span><span class="k">Assets</span></div>
+        <div class="stat"><span class="v" id="statSize">2.9 MB</span><span class="k">Total weight</span></div>
+        <div class="stat"><span class="v" id="statFormats">3</span><span class="k">Formats</span></div>
+      </div>
     </div>
   </header>
 
-  <section class="wrap hero">
-    <h1>Resources</h1>
-    <p>A curated library of product imagery, screenshots, and brand assets. Click any asset to preview it full size or copy its direct link.</p>
-    <div class="count"><b id="shown">0</b> <span id="shownLabel">assets</span></div>
-  </section>
+  <!-- Gallery -->
+  <main class="wrap" id="gallery">
+    <div class="section-head">
+      <h2>The collection</h2>
+      <span class="hint">Click any plate to inspect</span>
+    </div>
 
-  <main class="wrap">
+    <div class="toolbar">
+      <label class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.3-3.3"/></svg>
+        <input id="q" type="search" placeholder="Search assets" autocomplete="off" spellcheck="false" />
+      </label>
+      <span class="count" id="count">18 assets</span>
+    </div>
+
     <div class="grid" id="grid"></div>
     <div class="empty" id="empty">No assets match your search.</div>
+
+    <div class="note-strip" id="notes">
+      <div class="note">
+        <div class="k">Caching</div>
+        <p>Every file under <strong>/images</strong> is served with a one-year immutable cache header, so repeat visits cost nothing.</p>
+      </div>
+      <div class="note">
+        <div class="k">Delivery</div>
+        <p>Assets resolve from the network edge nearest the reader. Reference them directly by absolute URL.</p>
+      </div>
+      <div class="note">
+        <div class="k">Adding files</div>
+        <p>Drop an image into <strong>/images</strong>, register it in the collection, and push to main — the deployment follows.</p>
+      </div>
+    </div>
   </main>
 
-  <footer class="site">
+  <!-- Footer -->
+  <footer>
     <div class="wrap">
-      iVALT Resources · <a href="https://ivalt.com" target="_blank" rel="noopener noreferrer">ivalt.com</a>
+      <p>iVALT Resources · served from the edge</p>
+      <p>
+        <a href="https://ivalt.com" target="_blank" rel="noopener noreferrer">ivalt.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/jaskaran-ai/resources" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </p>
     </div>
   </footer>
 
+  <!-- Lightbox -->
   <dialog class="lb" id="lb">
     <div class="lb-inner">
-      <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
       <div class="lb-stage">
-        <button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+        <button class="lb-close" id="lbClose" type="button" aria-label="Close">✕</button>
+        <button class="lb-nav prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
         <img id="lbImg" alt="" />
-        <button class="lb-nav next" id="lbNext" aria-label="Next">›</button>
+        <button class="lb-nav next" id="lbNext" type="button" aria-label="Next">›</button>
       </div>
       <div class="lb-bar">
-        <span class="lb-name" id="lbName"></span>
-        <button class="btn" id="lbCopy">Copy link</button>
-        <a class="btn primary" id="lbOpen" target="_blank" rel="noopener">Open original</a>
+        <div class="grow">
+          <span class="title" id="lbTitle">—</span>
+          <span class="sub" id="lbFile">—</span>
+        </div>
+        <button class="btn btn-black btn-sm" id="lbCopy" type="button">Copy link</button>
+        <a class="btn btn-primary btn-sm" id="lbOpen" target="_blank" rel="noopener">Open original ▸</a>
       </div>
     </div>
   </dialog>
@@ -269,128 +583,213 @@
 
   <script>
     const ASSETS = [
-      { file: "alert.PNG", size: "297 KB" },
-      { file: "confirm.jpg", size: "54 KB" },
-      { file: "face.PNG", size: "147 KB" },
-      { file: "home-old.PNG", size: "187 KB" },
-      { file: "home.PNG", size: "62 KB" },
-      { file: "human-bounded.png", size: "712 KB" },
-      { file: "human-bounded.webp", size: "52 KB" },
-      { file: "logo-blue.png", size: "20 KB" },
-      { file: "logo.png", size: "195 KB" },
-      { file: "logohome.png", size: "18 KB" },
-      { file: "menu-old.PNG", size: "188 KB" },
-      { file: "menu.PNG", size: "39 KB" },
-      { file: "notification.PNG", size: "339 KB" },
-      { file: "ondeamdid-old.PNG", size: "95 KB" },
-      { file: "ondeamdid.PNG", size: "81 KB" },
-      { file: "ondemand.png", size: "212 KB" },
-      { file: "success.PNG", size: "86 KB" },
-      { file: "webcard.png", size: "9 KB" }
-    ].map(a => ({ ...a, url: "images/" + a.file }));
+      { file: "alert.PNG", bytes: 304333 },
+      { file: "confirm.jpg", bytes: 55722 },
+      { file: "face.PNG", bytes: 150271 },
+      { file: "home-old.PNG", bytes: 191856 },
+      { file: "home.PNG", bytes: 63872 },
+      { file: "human-bounded.png", bytes: 728744 },
+      { file: "human-bounded.webp", bytes: 52762 },
+      { file: "logo-blue.png", bytes: 20820 },
+      { file: "logo.png", bytes: 199653 },
+      { file: "logohome.png", bytes: 17939 },
+      { file: "menu-old.PNG", bytes: 192178 },
+      { file: "menu.PNG", bytes: 39451 },
+      { file: "notification.PNG", bytes: 347595 },
+      { file: "ondeamdid-old.PNG", bytes: 97044 },
+      { file: "ondeamdid.PNG", bytes: 82823 },
+      { file: "ondemand.png", bytes: 216966 },
+      { file: "success.PNG", bytes: 88430 },
+      { file: "webcard.png", bytes: 9071 }
+    ];
 
+    /* ---------- Formatting ---------- */
+    const ext = f => (f.split(".").pop() || "").toUpperCase();
+    const fmtSize = b =>
+      b < 1024 ? b + " B" :
+      b < 1048576 ? Math.round(b / 1024) + " KB" :
+      (b / 1048576).toFixed(1) + " MB";
+
+    function titleOf(file) {
+      let base = file.replace(/\.[^.]+$/, "");
+      const old = /[-_]old$/i.test(base);
+      if (old) base = base.replace(/[-_]old$/i, "");
+      base = base
+        .replace(/[-_]+/g, " ")
+        .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+        .trim()
+        .replace(/\b\w/g, c => c.toUpperCase());
+      return old ? base + " (old)" : base;
+    }
+
+    /* Disambiguate duplicate titles by format */
+    (() => {
+      const seen = {};
+      for (const a of ASSETS) {
+        a.title = titleOf(a.file);
+        seen[a.title] = (seen[a.title] || 0) + 1;
+      }
+      for (const a of ASSETS) {
+        if (seen[a.title] > 1) a.title += " (" + ext(a.file) + ")";
+        a.url = "images/" + a.file;
+      }
+    })();
+
+    /* ---------- Stats ---------- */
+    const totalBytes = ASSETS.reduce((n, a) => n + a.bytes, 0);
+    document.getElementById("statCount").textContent = ASSETS.length;
+    document.getElementById("announceCount").textContent = ASSETS.length;
+    document.getElementById("statSize").textContent = fmtSize(totalBytes);
+    document.getElementById("statFormats").textContent = new Set(ASSETS.map(a => ext(a.file))).size;
+
+    /* ---------- Rendering ---------- */
     const grid = document.getElementById("grid");
     const empty = document.getElementById("empty");
     const q = document.getElementById("q");
-    const shown = document.getElementById("shown");
-    const shownLabel = document.getElementById("shownLabel");
+    const count = document.getElementById("count");
     const toast = document.getElementById("toast");
-
-    const ext = f => (f.split(".").pop() || "").toUpperCase();
-    const prettySize = f => {
-      const kb = f.match(/[\d.]+/);
-      return kb ? kb[0] + " KB" : "";
-    };
-
     let visible = ASSETS.slice();
 
-    function card(a) {
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    function cardEl(a) {
       const el = document.createElement("article");
       el.className = "card";
       el.innerHTML = `
-        <button class="thumb" type="button" aria-label="Preview ${a.file}">
-          <img loading="lazy" decoding="async" src="${a.url}" alt="${a.file}" />
-          <span class="badge">${ext(a.file)}</span>
+        <button class="plate" type="button" aria-label="Inspect ${esc(a.title)}">
+          <img loading="lazy" decoding="async" src="${a.url}" alt="${esc(a.title)}" />
+          <span class="tag">${ext(a.file)}</span>
         </button>
-        <div class="meta">
-          <div class="name" title="${a.file}">${a.file}</div>
-          <div class="size">${a.size}</div>
-          <div class="actions">
-            <a class="btn" href="${a.url}" download>Download</a>
-            <button class="btn primary" type="button" data-copy="${a.url}">Copy link</button>
+        <div>
+          <h3>${esc(a.title)}</h3>
+          <div class="file" style="margin-top:8px">${esc(a.file)}</div>
+          <div class="meta-row" style="margin-top:12px">
+            <span>${fmtSize(a.bytes)}</span><span class="sep"></span><span>Image</span>
           </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-black btn-sm" type="button" data-copy="${a.url}">Copy link</button>
+          <a class="tlink" href="${a.url}" download>Download ↓</a>
         </div>`;
-      el.querySelector(".thumb").addEventListener("click", () => openLb(a));
+      el.querySelector(".plate").addEventListener("click", () => openLb(a));
+      return el;
+    }
+
+    function ctaEl() {
+      const el = document.createElement("article");
+      el.className = "card cta";
+      el.innerHTML = `
+        <div class="art"><span class="glyph" aria-hidden="true">✳</span></div>
+        <div>
+          <h3>Need a new asset?</h3>
+          <div class="file" style="margin-top:8px;color:var(--off-black)">Open an issue or push the file to the repository and it ships with the next deployment.</div>
+        </div>
+        <div class="actions">
+          <a class="tlink" href="https://github.com/jaskaran-ai/resources" target="_blank" rel="noopener noreferrer">Open GitHub →</a>
+        </div>`;
       return el;
     }
 
     function render(list) {
       visible = list;
-      grid.replaceChildren(...list.map(card));
+      const nodes = list.map(cardEl);
+      if (list.length) nodes.push(ctaEl());
+      grid.replaceChildren(...nodes);
       empty.style.display = list.length ? "none" : "block";
-      shown.textContent = list.length;
-      shownLabel.textContent = list.length === 1 ? "asset" : "assets";
+      count.textContent = list.length + (list.length === 1 ? " asset" : " assets");
     }
 
     function filter() {
       const term = q.value.trim().toLowerCase();
-      render(term ? ASSETS.filter(a => a.file.toLowerCase().includes(term)) : ASSETS);
+      render(term ? ASSETS.filter(a =>
+        a.title.toLowerCase().includes(term) || a.file.toLowerCase().includes(term)
+      ) : ASSETS);
     }
     q.addEventListener("input", filter);
 
-    document.addEventListener("click", async e => {
-      const btn = e.target.closest("[data-copy]");
-      if (!btn) return;
-      const url = new URL(btn.dataset.copy, location.href).href;
-      await copy(url);
-      const old = btn.textContent;
-      btn.textContent = "Copied";
-      btn.classList.add("copied");
-      setTimeout(() => { btn.textContent = old; btn.classList.remove("copied"); }, 1400);
-    });
-
+    /* ---------- Clipboard ---------- */
     async function copy(text) {
       try {
         await navigator.clipboard.writeText(text);
       } catch {
         const t = document.createElement("textarea");
-        t.value = text; document.body.appendChild(t); t.select();
-        document.execCommand("copy"); t.remove();
+        t.value = text;
+        t.style.position = "fixed";
+        t.style.opacity = "0";
+        document.body.appendChild(t);
+        t.select();
+        try { document.execCommand("copy"); } catch {}
+        t.remove();
       }
       toast.classList.add("show");
       clearTimeout(copy._t);
-      copy._t = setTimeout(() => toast.classList.remove("show"), 1500);
+      copy._t = setTimeout(() => toast.classList.remove("show"), 1600);
     }
 
-    /* Lightbox */
+    document.addEventListener("click", async e => {
+      const btn = e.target.closest("[data-copy]");
+      if (!btn) return;
+      await copy(new URL(btn.dataset.copy, location.href).href);
+      const prev = btn.textContent;
+      btn.textContent = "Copied";
+      setTimeout(() => { btn.textContent = prev; }, 1400);
+    });
+
+    const baseUrl = () => location.origin + "/";
+    ["copyBase", "copyBaseHero"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("click", () => copy(baseUrl()));
+    });
+
+    /* ---------- Announcement ---------- */
+    const announce = document.getElementById("announce");
+    if (sessionStorage.getItem("announceClosed") === "1") announce.classList.add("hidden");
+    document.getElementById("closeAnnounce").addEventListener("click", () => {
+      announce.classList.add("hidden");
+      try { sessionStorage.setItem("announceClosed", "1"); } catch {}
+    });
+
+    /* ---------- Lightbox ---------- */
     const lb = document.getElementById("lb");
     const lbImg = document.getElementById("lbImg");
-    const lbName = document.getElementById("lbName");
+    const lbTitle = document.getElementById("lbTitle");
+    const lbFile = document.getElementById("lbFile");
     const lbOpen = document.getElementById("lbOpen");
     const lbCopy = document.getElementById("lbCopy");
     let idx = 0;
 
+    function showLb() {
+      const a = visible[idx];
+      if (!a) return;
+      lbImg.src = a.url;
+      lbImg.alt = a.title;
+      lbTitle.textContent = a.title;
+      lbFile.textContent = a.file + " · " + fmtSize(a.bytes);
+      lbOpen.href = a.url;
+      lbCopy.dataset.copy = a.url;
+    }
     function openLb(a) {
       idx = visible.indexOf(a);
+      if (idx < 0) idx = 0;
       showLb();
       if (typeof lb.showModal === "function") lb.showModal();
       else lb.setAttribute("open", "");
     }
-    function showLb() {
-      const a = visible[idx]; if (!a) return;
-      lbImg.src = a.url; lbImg.alt = a.file;
-      lbName.textContent = `${a.file} · ${a.size}`;
-      lbOpen.href = a.url;
-      lbCopy.dataset.url = a.url;
+    function step(d) {
+      if (!visible.length) return;
+      idx = (idx + d + visible.length) % visible.length;
+      showLb();
     }
-    function step(d) { if (!visible.length) return; idx = (idx + d + visible.length) % visible.length; showLb(); }
-    function closeLb() { if (typeof lb.close === "function") lb.close(); else lb.removeAttribute("open"); }
+    function closeLb() {
+      if (typeof lb.close === "function") lb.close();
+      else lb.removeAttribute("open");
+    }
 
     document.getElementById("lbPrev").addEventListener("click", () => step(-1));
     document.getElementById("lbNext").addEventListener("click", () => step(1));
     document.getElementById("lbClose").addEventListener("click", closeLb);
     lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
-    lbCopy.addEventListener("click", () => copy(new URL(lbCopy.dataset.url, location.href).href));
+    lbCopy.addEventListener("click", () => copy(new URL(lbCopy.dataset.copy, location.href).href));
     document.addEventListener("keydown", e => {
       if (!lb.hasAttribute("open")) return;
       if (e.key === "ArrowLeft") step(-1);
